@@ -32,6 +32,14 @@ def get_slot_machine_spin(rows, cols, symbols):
         columns.append(column)
     return columns
 
+def print_slot_machine(columns):
+    for row in range(len(columns[0])):
+        for i, column in enumerate(columns):
+            if i != len(columns) - 1:
+                print(column[row], "|")
+            else:
+                print(column[row])
+
 def deposit():
     while True:
         amount = input("How much would you like to deposit? $")
@@ -80,8 +88,8 @@ def main():
 
         if total_bet > balance:
             print(f"You do not have enough to bet that amount, your current balance is: ${balance}")
-    bet = get_bet()
-    
+        else:
+            break
 
     print(f"You are betting ${bet} on {lines} lines. Total bet is equal to: ${total_bet}")
     print(balance, lines)
